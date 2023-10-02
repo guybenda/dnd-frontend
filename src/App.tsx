@@ -18,7 +18,13 @@ function App() {
 			</div>
 			<h1>חיחי</h1>
 			<div className="card">
-				<button onClick={() => setCount(count => count + 1)}>
+				<button
+					onClick={async () => {
+						const res = await fetch(import.meta.env.VITE_API || "");
+						alert(JSON.stringify(await res.json()));
+						setCount(count => count + 1);
+					}}
+				>
 					count is {count}
 				</button>
 				<p>
