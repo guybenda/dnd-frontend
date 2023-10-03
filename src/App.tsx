@@ -1,39 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { WSGameClient } from "./services/ws";
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
 		<>
 			<div>
-				<a href="https://vitejs.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1>חיחי</h1>
-			<div className="card">
 				<button
-					onClick={async () => {
-						const res = await fetch(import.meta.env.VITE_API || "");
-						alert(JSON.stringify(await res.json()));
-						setCount(count => count + 1);
+					onClick={() => {
+						WSGameClient.connect("123", "456");
 					}}
 				>
-					count is {count}
+					Connect
 				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
 			</div>
-			<p className="read-the-docs">
-				Click on the Vite and React logos to learn more
-			</p>
 		</>
 	);
 }
