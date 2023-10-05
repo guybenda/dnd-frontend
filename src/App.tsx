@@ -1,5 +1,9 @@
+import { Die, StandardDice } from "dnd-common";
 import "./App.css";
-import { WSGameClient } from "./services/ws";
+import { gameService } from "./services/game";
+import { GameManager } from "./services/io";
+
+const game = new GameManager("123", "WRUta9rLAvpORfvePON1");
 
 function App() {
 	return (
@@ -7,10 +11,15 @@ function App() {
 			<div>
 				<button
 					onClick={() => {
-						WSGameClient.connect("123", "456");
+						game.roll(
+							"asd",
+							"678",
+							{ dice: [Die.fromStandardDie(StandardDice.d20, 5)] },
+							true
+						);
 					}}
 				>
-					Connect
+					Send
 				</button>
 			</div>
 		</>
@@ -18,3 +27,5 @@ function App() {
 }
 
 export default App;
+
+console.log(gameService);

@@ -7,7 +7,7 @@ export const requests = {
 			...options,
 		});
 
-		return await response.json();
+		return response.json();
 	},
 
 	async post(url: string, body: any, options?: RequestInit) {
@@ -20,7 +20,7 @@ export const requests = {
 			...options,
 		});
 
-		return await response.json();
+		return response.json();
 	},
 
 	async put(url: string, body: any, options?: RequestInit) {
@@ -33,7 +33,7 @@ export const requests = {
 			...options,
 		});
 
-		return await response.json();
+		return response.json();
 	},
 
 	async delete(url: string, options?: RequestInit) {
@@ -42,6 +42,6 @@ export const requests = {
 			...options,
 		});
 
-		return await response.json();
+		return response.json();
 	},
 } as const;
