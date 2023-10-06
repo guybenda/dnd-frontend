@@ -14,7 +14,10 @@ export class GameManager {
 	io: DndSocketType;
 
 	constructor(userId: string, gameId: string) {
-		this.io = io(WS_URL, { auth: { userId, gameId } });
+		this.io = io(WS_URL, {
+			auth: { userId, gameId },
+			transports: ["websocket"],
+		});
 
 		this.io.on("rollResult", (name, id, result) => {
 			console.log(name, id, result);
